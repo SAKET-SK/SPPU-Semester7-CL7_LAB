@@ -1,1 +1,3 @@
-Assignment 1) -> Implementation of RSA Algorith using JAVA
+Assignment 1) -> Write a program in C++ or Java to implement RSA algorithm for key generation and cipher verification
+
+
