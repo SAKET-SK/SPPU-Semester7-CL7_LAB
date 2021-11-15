@@ -1,4 +1,4 @@
-data = read.csv(file = "G:\\MLA\\input.csv")
+data = read.csv(file = "G:\\MLA\\input.csv")    #paste the path correctly where your input.csv is placed in your system.
 data
 plot(data$at_bats~data$runs)
 mod = lm(data$at_bats~data$runs)
