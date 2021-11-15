@@ -1,0 +1,85 @@
+---
+title: "Assignment 8: K-Means Clustering"
+author: "43141 (Sahil Naphade)"
+date: "18/10/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Installing required packages
+```{r}
+library(tidyverse)
+library(cluster)
+#install.packages("FactoMineR")
+#install.packages("factoextra")
+library(FactoMineR)
+library(factoextra)
+```
+
+# Reading the dataset and removing null values
+```{r}
+df <- USArrests
+df <- na.omit(df)
+df <- scale(df)
+head(df)
+```
+
+# Compute distance matrix between the rows of a data matrix. Visualizr the created distance matrix.
+```{r}
+distance <- get_dist(df)
+fviz_dist(distance, gradient = list(low = "#00AFBB",mid = "white", 
+                                    high = "#FC4E07"))
+```
+# Perform K-means clustering on the dataset with 3 clusters
+```{r}
+k3 <- kmeans(df, centers = 3, nstart = 25)
+str(k3)
+k3
+```
+# Visualize the created clusters
+```{r}
+fviz_cluster(k3, data = df)
+```
+# Intra-cluster variation (Known as total within-cluster variation/total 
+# within-cluster sum of square)
+# Implementation of Elbow method in R
+```{r}
+set.seed(123)
+```
+#Function to compute total within-cluster sum of square
+```{r}
+wss <- function(k){
+  kmeans(df, k, nstart = 10)$tot.withinss
+}
+```
+# compute and plot wss for k = 1 to k = 10
+```{r}
+k.values <- 1:10
+```
+# Extract wss for 2 - 15 clusters
+```{r}
+wss_values <- map_dbl(k.values, wss)
+```
+# Plot the elbow method (defined in fviz_nbclust)
+```{r}
+plot(k.values, wss_values, type = "b",
+     pch = 19, frame = F, xlab = "Number of clusters K",
+     ylab = "Total within-clusters sum of squares")
+```
+```{r}
+set.seed(123)
+fviz_nbclust(df, kmeans, method = "wss")
+```
+
+# Optimal number of clusters = 4, therefore, calc final result using k = 4
+```{r}
+set.seed(123)
+final <- kmeans(df, 4, nstart = 25)
+print(final)
+```
+```{r}
+fviz_cluster(final, data = df)
+```
