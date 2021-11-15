@@ -1,4 +1,4 @@
-dataset <- read.csv("C:\\Users\\shreyas\\Desktop\\College\\SEM-VII\\CL-VII-MLA\\Assignment5\\input.csv", header = T, )
+dataset <- read.csv("C:\\Users\\Saket\\Desktop\\College\\SEM-VII\\CL-VII-MLA\\Assignment5\\input.csv", header = T, )   #As I said earlier, put this path for your input.csv. This may differ
 head(dataset)
 plot(dataset$hits)
 eq = runs+at_bats~homeruns+bat_avg+strikeouts+stolen_bases+wins+new_onbase+new_slug+new_obs
