@@ -1,0 +1,7 @@
+high gamma and low gamma in SVM
+C parameter in SVM (regularization)
+https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python
+https://towardsdatascience.com/breast-cancer-classification-using-support-vector-machine-svm-a510907d4878
+
+For Creating & visualizing ANN, we can use KERAS, Collab, Tensorflow, anything
+github codebasics
