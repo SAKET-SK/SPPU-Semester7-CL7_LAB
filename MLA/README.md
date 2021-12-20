@@ -5,3 +5,4 @@
 5)  **Assignment 5 :-** Apply K-means Clustering on given data.
 6)  **Assignemnt 6 :-** Apply SVM on given data.
 7)  **Assignment 7 :-** Create Association Rules for the Market Basket Analysis for the given Threshold. (Using R)
+8)  **Assignment 8 :-** Creating & Visualizing Neural Network for the given data. (Using Python)
